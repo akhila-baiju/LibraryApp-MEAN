@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header">
+      <strong> {{title}}</strong> 
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+               
+                 <tbody>
+                  <tr *ngFor="let i of books">
+                        <td><img [src]="i.bookURL" alt="image"
+                                 [style.width.px]='imageWidth'
+                                 [style.margin.px]="imageMargin">    
+                        </td>  
+                            
+                        <td></td>
+                        <td><strong>{{i.title}}</strong><br>{{i.content}}</td>
+                        <td><img [src]="i.authorURL" alt="image"
+                            [style.width.px]='imageWidth'
+                            [style.margin.px]="imageMargin"></td>
+                         <td>
+                           <img src="../../assets/edit.png" style="cursor:pointer" *ngIf="_auth.loggedIn()"  (click)="editBook(i)" style="margin-left: 30px; width: 20px; height: 20px;"  routerLink="" routerLinkActive="active"> 
+                           <img src="../../assets/delete.jpg" style="cursor:pointer" *ngIf="_auth.loggedIn()"  (click)="deleteBook(i)" style="margin-left: 20px; width: 40px; height: 40px;"  routerLinkActive="active"> 
+                         </td></tr>
+                 </tbody>
+            </table>
+        </div>
+    </div>
+</div>
